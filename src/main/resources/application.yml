@@ -1,0 +1,5 @@
+management:
+  endpoint:
+    health:
+      enabled: true
+      show-details: always

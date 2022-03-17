@@ -1,6 +1,8 @@
 plugins {
-	id 'org.springframework.boot' version '2.6.4'
+	id 'org.springframework.boot' version '2.4.5'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'org.sonarqube' version '3.3'
+	id 'jacoco'
 	id 'java'
 }
 
@@ -12,11 +14,90 @@ repositories {
 	mavenCentral()
 }
 
+ext {
+	set('springBootVersion', "2.4.5")
+	set('swaggerVersion', "2.9.2")
+	set('apacheCommonsVersion', "2.7")
+	set('apacheCommonsLangVersions', "2.6")
+	set('cucumberVersion', "7.2.3")
+}
+
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// Spring Boot
+	implementation "org.springframework.boot:spring-boot-starter:${springBootVersion}"
+	implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+	implementation "org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}"
+
+	// Test
+	testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+	testImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
+	testImplementation "io.cucumber:cucumber-spring:${cucumberVersion}"
+	testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
+
+	// Swagger
+	implementation "io.springfox:springfox-swagger2:${swaggerVersion}"
+	implementation "io.springfox:springfox-swagger-ui:${swaggerVersion}"
+
+	// Apache Commons
+	implementation "commons-io:commons-io:${apacheCommonsVersion}"
+	implementation "commons-lang:commons-lang:${apacheCommonsLangVersions}"
+
+}
+
+apply plugin: 'jacoco'
+
+sonarqube {
+	properties {
+		property "sonar.projectKey", "Caiuzu_hello-world"
+		property "sonar.organization", "caiuzu"
+		property "sonar.host.url", "https://sonarcloud.io"
+		property 'sonar.exclusions',
+				"src/main/java/br/com/hello/world/HelloWorldApplication.java," +
+						"src/main/java/br/com/hello/world/config/**"
+	}
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+	test.finalizedBy jacocoTestReport
+	test.finalizedBy jacocoTestCoverageVerification
+}
+
+tasks.jacocoTestReport {
+	reports {
+		xml.enabled true
+		csv.enabled false
+		html.enabled false
+	}
+
+	afterEvaluate {
+		getClassDirectories().from(files(classDirectories.files.collect {
+			fileTree(dir: it,
+					exclude: ["src/main/java/br/com/hello/world/HelloWorldApplication.java," +
+									  "src/main/java/br/com/hello/world/config/**"]
+			)
+		}))
+	}
+}
+
+tasks.jacocoTestCoverageVerification {
+	violationRules {
+		rule {
+
+//            limit {
+//                counter = 'LINE'
+//                minimum = 0.8
+//            }
+//
+//            limit {
+//                counter = 'BRANCH'
+//                minimum = 0.8
+//            }
+
+			excludes = ["src/main/java/br/com/hello/world/HelloWorldApplication.java," +
+								"src/main/java/br/com/hello/world/config/**"
+			]
+		}
+	}
 }

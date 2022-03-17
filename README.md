@@ -8,7 +8,7 @@
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Caiuzu_hello-world&metric=code_smells)](https://sonarcloud.io/dashboard?id=Caiuzu_hello-world)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Caiuzu_hello-world&metric=ncloc)](https://sonarcloud.io/dashboard?id=Caiuzu_hello-world)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Caiuzu_hello-world&metric=coverage)](https://sonarcloud.io/dashboard?id=Caiuzu_hello-world)
-
+[![Java CI with Gradle](https://github.com/Caiuzu/hello-world/actions/workflows/gradle.yml/badge.svg)](https://github.com/Caiuzu/hello-world/actions/workflows/gradle.yml)
 ---
 
 ### Resumo:

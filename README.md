@@ -18,8 +18,9 @@
 
 ## Tecnologias/Ferramentas Utilizadas no Projeto:
 
-- [x] Spring Boot
 - [x] Spring Initializr
+- [x] Spring Boot
+- [X] Gradle
 - [x] Actuator
 - [x] Springfox Swagger
 - [X] JUnit
@@ -454,6 +455,22 @@
     - [ ] EC2
 - [ ] Kubernetes
 - [ ] Mockito
+- [ ] Lombok
+- [ ] Audited JPA Envers
+- [ ] PostgreSQL
+- [ ] JPA
+- [ ] Hibernate
+- [ ] Validator
+- [ ] Docker
+- [ ] Heroku
+- [ ] New Relic
+- [ ] Tratamento de Exceptions
+- [ ] Pagination
+- [ ] Sleuth
+- [ ] Zipkin UI
+- [ ] Liquibase
+- [ ] Spring Cloud Config (Remote Configuration)
+- [ ] Spring Cloud Bus
 
 ---
 

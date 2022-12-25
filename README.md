@@ -2,18 +2,55 @@
 
 ###### By: [@caiuzu](https://github.com/Caiuzu/)
 
-![GitHub repo size](https://img.shields.io/github/repo-size/Caiuzu/hello-world)
-![ViewCount](https://views.whatilearened.today/views/github/Caiuzu/hello-world.svg)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Caiuzu_hello-world&metric=bugs)](https://sonarcloud.io/dashboard?id=Caiuzu_hello-world)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Caiuzu_hello-world&metric=code_smells)](https://sonarcloud.io/dashboard?id=Caiuzu_hello-world)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Caiuzu_hello-world&metric=ncloc)](https://sonarcloud.io/dashboard?id=Caiuzu_hello-world)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Caiuzu_hello-world&metric=coverage)](https://sonarcloud.io/dashboard?id=Caiuzu_hello-world)
-[![Java CI with Gradle](https://github.com/Caiuzu/hello-world/actions/workflows/gradle.yml/badge.svg)](https://github.com/Caiuzu/hello-world/actions/workflows/gradle.yml)
+<!-- Badges -->
+<p align="center">
+   <a href="https://www.linkedin.com/">
+      <img alt="Caio Souza" src="https://img.shields.io/badge/-Caio Souza-black?style=flat&logo=Linkedin&logoColor=white" />
+   </a>
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Caiuzu/hello-world"/>
+  <img alt="Repository size" src="https://views.whatilearened.today/views/github/Caiuzu/hello-world.svg"/>
+
+   <a href="https://sonarcloud.io/dashboard?id=Caiuzu_hello-world">
+      <img alt="Bugs" src="https://sonarcloud.io/api/project_badges/measure?project=Caiuzu_hello-world&metric=bugs" />
+   </a>
+   <a href="https://sonarcloud.io/dashboard?id=Caiuzu_hello-world">
+      <img alt="Bugs" src="https://sonarcloud.io/api/project_badges/measure?project=Caiuzu_crud&metric=bugs" />
+   </a>
+   <a href="https://sonarcloud.io/dashboard?id=Caiuzu_hello-world">
+      <img alt="Code Smells" src="https://sonarcloud.io/api/project_badges/measure?project=Caiuzu_hello-world&metric=code_smells" />
+   </a>
+   <a href="https://sonarcloud.io/dashboard?id=Caiuzu_hello-world">
+      <img alt="Lines of Code" src="https://sonarcloud.io/api/project_badges/measure?project=Caiuzu_hello-world&metric=ncloc" />
+   </a>
+   <a href="https://sonarcloud.io/dashboard?id=Caiuzu_hello-world">
+      <img alt="Coverage" src="https://sonarcloud.io/api/project_badges/measure?project=Caiuzu_hello-world&metric=coverage" />
+   </a>
+   <a href="https://github.com/Caiuzu/hello-world/actions/workflows/gradle.yml">
+      <img alt="Java CI with Gradle" src="https://github.com/Caiuzu/hello-world/actions/workflows/gradle.yml/badge.svg?branch=master" />
+   </a>
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-black"/>
+</p>
+
+<!-- Indice-->  
+<p align="center">  
+ <a href="#resumo">Resumo</a> •
+ <a href="#0-spring-initializr">Initializr</a> •  
+ <a href="#1-actuator">Actuator</a> •  
+ <a href="#2-springfox-swagger2">Swagger2</a> •  
+ <a href="#3-junit">JUnit5</a> •  
+ <a href="#4-cucumber">Cucumber</a> •  
+ <a href="#5-sonarcloud">SonarCloud</a> •  
+ <a href="#6-cicd-github-actions">CI/CD</a> •  
+ <a href="#7-integrações-discord-webhook">Webhook</a> •  
+ <a href="#8-endpoints-da-aplicação">Endpoints</a> •  
+ <a href="#como-contribuir">Como Contribuir?</a>  
+</p> 
 ---
 
 ### Resumo:
 
-> Este projeto tem por intuito introduzir o desenvolvedor a algumas tecnologias e ferramentas complementares, vastamente utilizadas no dia-a-dia.
+> Este projeto tem por intuito introduzir o desenvolvedor a algumas tecnologias e ferramentas complementares, vastamente
+> utilizadas no dia-a-dia.
 > Através de um Hello World, implementaremos os itens descritos abaixo.
 
 ## Tecnologias/Ferramentas Utilizadas no Projeto:
@@ -28,6 +65,41 @@
 - [x] SonarCloud
 - [x] CI/CD (GitHub Actions)
 - [x] Commit Semântico
+- [X] Discord Webhook
+
+---
+
+## 0. Spring Initializr:
+
+- ### O que é:
+    - **Spring Initializr** fornece uma interface web bem simples para o usuário. Podendo gerar seu projeto a partir de
+      uma estrutura de configurações pré-moldadas. São configurações de versões do java/spring boot, grupo/nome do
+      projeto, série de lista de dependências e etc.
+
+- ### Inicializando projeto com Spring initializr:
+  <details>
+  <summary>Inicializando nosso projeto com Spring initializr:</summary>
+
+    - Inicializaremos o projeto através do [spring initializr](http://start.spring.io) utilizando os parâmetros
+      abaixo:
+
+        - **Project**: Gradle Project;
+            - **Language**: Java;
+            - **Spring Boot**: 2.4.5;
+            - **Project Metadata**:
+                - **Group**: br.com.hello
+                - **Artifact**: world
+                - **Name**: world
+                - **Description**: Simple Hello World API
+                - **Package name**: br.com.hello.world
+                - **Packaging**: jar
+                - **Java**: 11
+            - **Dependencies**: Spring Web
+
+  </details>
+
+- ### Spring Quickstart:
+  > [Spring Quickstart](https://spring.io/quickstart)
 
 ---
 
@@ -44,10 +116,10 @@
   <summary>Configurando Actuator no projeto:</summary>
 
     - Adicionaremos as dependências para o actuator no arquivo [build.gradle](./build.gradle):
-      ```
-        ext {
-          set('springBootVersion', "2.4.5")
-        }
+      ```yaml
+      ext {
+        set('springBootVersion', "2.4.5")
+      }
   
       dependencies {
       // Spring Boot
@@ -384,7 +456,7 @@
 
 ---
 
-## 6. Integrações (Discord WebHook)
+## 7. Integrações (Discord WebHook)
 
 - ### O que é:
     - Imagine o seguinte cenário, você acabou de finalizar uma feature e agora deseja subir para QA. Em um fluxo de
@@ -427,7 +499,7 @@
 
 ---
 
-## 7. Endpoints da Aplicação:
+## 8. Endpoints da Aplicação:
 
 ### Hello World:
 
@@ -458,10 +530,12 @@
 - [ ] Lombok
 - [ ] Audited JPA Envers
 - [ ] PostgreSQL
+- [ ] Hibernate
 - [ ] JPA
 - [ ] Hibernate
 - [ ] Validator
 - [ ] Docker
+- [ ] Portainer.io
 - [ ] Heroku
 - [ ] New Relic
 - [ ] Tratamento de Exceptions

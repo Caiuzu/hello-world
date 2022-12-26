@@ -45,6 +45,7 @@
  <a href="#8-endpoints-da-aplicação">Endpoints</a> •  
  <a href="#como-contribuir">Como Contribuir?</a>  
 </p> 
+
 ---
 
 ### Resumo:
